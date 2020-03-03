@@ -23,7 +23,7 @@ public class MicroServer1ServiceImpl implements MicroServer1Service {
     public Stream<Integer> getId(@RequestParam(name = "x", required = false) Integer x, @RequestParam(name = "y", required = false) String y) {
         Stream<Integer> listId = null;
         if (y != null && x != null) {
-            System.out.println("entre");
+
             listId = microServer1Repository.findAll()
                     .stream()
                     .filter(anime -> anime.getGenre().equals(y) || anime.getGenre().contains(y))
@@ -42,8 +42,7 @@ public class MicroServer1ServiceImpl implements MicroServer1Service {
             listId = microServer1Repository.findAll()
                     .stream()
                     .map(anime -> anime.getAnime_id())
-                    .limit(x)
-            ;
+                    .limit(x);
         }
 
         return listId;

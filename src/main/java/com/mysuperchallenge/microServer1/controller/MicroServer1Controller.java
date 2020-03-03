@@ -26,8 +26,11 @@ public class MicroServer1Controller {
         return microServer1Service.getAll();
 
     }
+
+
     @GetMapping("/idd")
     public Stream<Integer> getId(@RequestParam(name="x",required = false)Integer x,@RequestParam(name="y",required = false)String y) {
+
         return microServer1Service.getId(x,y);
 
     }
@@ -42,4 +45,6 @@ public class MicroServer1Controller {
 
 
     }
+
+
 }
